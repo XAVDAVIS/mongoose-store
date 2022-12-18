@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const Products = require('./models/products');
+const data = require('./data');
 
 require('dotenv').config();
 
@@ -21,16 +22,31 @@ db.on('connected', () => console.log(`Connected to MongoDB on ${db.host}:${db.po
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
-
+                    ///// SEED ROUTE ////
+// Seed Route
+app.get('/store/seed', (req, res) => {
+    // delete ther records from the collection 
+    Products.deleteMany({}, (err) => {
+        // create a seperate file of records for representing the store 
+        // add the new records (seed data) to the collection 
+        Products.create(data, (err) => {
+            // redirect user to store index
+            res.redirect('/store');
+        });
+    });
+});
 
                     ////// INDCUCES //////
 
 // Index 
-app.get('/products', (req, res) => {
+app.get('/store', (req, res) => {
     Product.find({}, (err, products) => {
 
     })
 })
+
+// New 
+app.get('/store')
 
 
 
