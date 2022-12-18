@@ -9,6 +9,6 @@ const productSchema = new Schema ({
     qty: Number
 });
 
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('Products', productSchema);
 
 
