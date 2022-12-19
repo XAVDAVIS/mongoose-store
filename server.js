@@ -41,9 +41,9 @@ app.get('/store/seed', (req, res) => {
 // Index 
 app.get('/store', (req, res) => {
     Products.find({}, (err, myProds) => {
-
-    })
-})
+        res.render('index.ejs', { myProds });
+    });
+});
 
 // New 
 app.get('/store/new', (req, res) => {
