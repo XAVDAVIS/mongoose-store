@@ -46,8 +46,26 @@ app.get('/store', (req, res) => {
 })
 
 // New 
-app.get('/store')
+app.get('/store/new', (req, res) => {
+    res.render('new');
+})
 
+// Delete 
+
+
+// Update 
+
+
+// Create 
+app.post('/store', (req, res) => {
+    Products.create(req.body, (err, store) => {
+        res.redirect('/store');
+    });
+});
+
+// Edit 
+
+// Show
 
 
 
