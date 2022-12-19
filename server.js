@@ -51,7 +51,11 @@ app.get('/store/new', (req, res) => {
 })
 
 // Delete 
-
+app.delete('/store/:id', (req, res ) => {
+    Products.findByIdAndDelete(req.params.id, (err) => {
+        res.redirect('/store');
+    })
+})
 
 // Update 
 app.put('/store:id', (req, res ) => {
@@ -75,7 +79,11 @@ app.get('/store/:id/edit', (req, res) => {
 });
 
 // Show
-
+app.get('/store/:id', (req, res) => {
+    Products.findById(req.params.id, (err, myProds) => {
+        res.render('show.ejs', { myProds });
+    });
+});
 
 
 
