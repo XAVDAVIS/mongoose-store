@@ -47,26 +47,32 @@ app.get('/store', (req, res) => {
 
 // New 
 app.get('/store/new', (req, res) => {
-    res.render('new');
+    res.render('new.ejs');
 })
 
 // Delete 
 
 
 // Update 
-
+app.put('/store:id', (req, res ) => {
+    Products.findByIdAndUpdate(req.params.id, req.body, {new: true }, (err, myProds) => {
+        res.redirect('/store')
+    })
+})
 
 // Create 
 app.post('/store', (req, res) => {
-    Products.create(req.body, (err, store) => {
+    Products.create(req.body, (err, myProds) => {
         res.redirect('/store');
     });
 });
 
 // Edit 
 app.get('/store/:id/edit', (req, res) => {
-    Products.findById(req.params.id, (err, store))
-})
+    Products.findById(req.params.id, (err, myProds) => {
+        res.render('edit.ejs', { myProds });
+    });
+});
 
 // Show
 
