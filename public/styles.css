@@ -1,0 +1,13 @@
+img {
+    max-height: 100px;
+}
+
+body {
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}

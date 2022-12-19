@@ -8,9 +8,9 @@
 </head>
 <body>
     <nav>
-        <a href="/store/new">Add Store</a>
+        <a href="/store/new">Add Product to Store List</a>
    </nav>
-   <h1>Store List</h1>
+   <h1>List of Store Products</h1>
 
    <ul>
         <% myProds.forEach(p => { %>
@@ -19,7 +19,7 @@
                 <form action="/store/<%= p._id %>?_method=DELETE" method="POST">
                     <input type="submit" value="Delete">
                 </form>
-                <a href="/store/<%= p._id %>/edit">Edit Store Info</a>
+                <a href="/store/<%= p._id %>/edit">Edit Product Info</a>
             </li>
         <% }); %>
    </ul>
