@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Product</title>
 </head>
 <body>
-    
+    <h1>Edit Product Page</h1>
+    <form action="/store/<%=myProds.name%>?_method=PUT" method="POST">
+        Name: <input type="text" name="name" value="<%=myProds.name; %>"><br>
+        Description: <input type="text" name="description" value="<%=myProds.description; %>"><br>
+        Image: <input type="text" name="img" value="<%=myProds.img; %>"><br>
+        Price: <input type="text" name="price" value="<%=myProds.price; %>"><br>
+        Quantity: <input type="text" name="qty" value="<%=myProds.qty; %>"><br>
+        <input type="submit" value="Add Product">
+    </form>
 </body>
 </html>
