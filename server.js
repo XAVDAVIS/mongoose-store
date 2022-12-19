@@ -40,7 +40,7 @@ app.get('/store/seed', (req, res) => {
 
 // Index 
 app.get('/store', (req, res) => {
-    Product.find({}, (err, products) => {
+    Products.find({}, (err, myProds) => {
 
     })
 })
@@ -64,6 +64,9 @@ app.post('/store', (req, res) => {
 });
 
 // Edit 
+app.get('/store/:id/edit', (req, res) => {
+    Products.findById(req.params.id, (err, store))
+})
 
 // Show
 
